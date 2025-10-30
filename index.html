@@ -187,16 +187,30 @@
       <div class="container">
         <h2 class="fw-semibold">Stay in the Loop</h2>
         <p class="mb-4">Subscribe for updates and swap tips.</p>
-        <form class="row justify-content-center">
+        <form
+          id="newsletter-form"
+          class="row justify-content-center"
+          novalidate
+        >
           <div class="col-md-6">
             <input
               type="email"
               class="form-control mb-2"
+              id="newsletter-email"
               placeholder="Enter your email"
+              aria-describedby="newsletter-email-error"
+              required
             />
+            <div
+              id="newsletter-email-error"
+              class="error-message text-danger"
+              style="display: none"
+            ></div>
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-light">Subscribe</button>
+            <button type="submit" class="btn btn-light" id="newsletter-submit">
+              Subscribe
+            </button>
           </div>
         </form>
       </div>
@@ -249,5 +263,38 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/validation.js"></script>
+    <script>
+      // Newsletter form validation and AJAX submission
+      document
+        .getElementById("newsletter-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearErrors(this);
+
+          const email = document
+            .getElementById("newsletter-email")
+            .value.trim();
+
+          let isValid = true;
+
+          if (!validateEmail(email)) {
+            showError(
+              "newsletter-email",
+              "Please enter a valid email address."
+            );
+            isValid = false;
+          }
+
+          if (isValid) {
+            submitForm(this, "/api/newsletter", function (data) {
+              showSuccess(
+                "Thank you for subscribing! You will receive updates soon."
+              );
+              document.getElementById("newsletter-form").reset();
+            });
+          }
+        });
+    </script>
   </body>
 </html>
