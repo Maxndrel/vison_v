@@ -1,157 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard | Vision V</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard | Vision V</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./style/index.css" />
 
-  <style>
-    body {
-      background-color: #f4f6f9;
-      font-family: 'Segoe UI', sans-serif;
-    } 
+    <style>
+      body {
+        background: linear-gradient(135deg, #f4f6f9 0%, #e9ecef 100%);
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
 
-    .topbar {
-      background-color: white;
-      padding: 15px 20px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    }
+      .topbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px 30px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        margin: -20px -20px 20px -20px;
+      }
 
-    .welcome-banner {
-      background: linear-gradient(135deg, #001f3f, #005f73);
-      color: white;
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
-    }
+      .welcome-banner {
+        background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 1.5rem;
+        margin-top: 20px;
+        box-shadow: 0 1rem 2rem rgba(0, 31, 63, 0.25);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .card-box {
-      border-radius: 10px;
-      box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.05);
-      transition: 0.3s;
-    }
+      .welcome-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        transform: translate(50%, -50%);
+      }
 
-    .card-box:hover {
-      transform: translateY(-4px);
-    }
+      .card-box {
+        border-radius: 1.25rem;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: none;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
 
-    .user-name {
-      font-weight: 600;
-    }
+      .card-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+      }
 
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #333;
-    }
+      .user-name {
+        font-weight: 700;
+        color: #001f3f;
+      }
 
+      .section-title {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #001f3f;
+        font-size: 1.5rem;
+      }
 
-  </style>
-</head>
-<body>
+      .stats-card {
+        background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        border-left: 4px solid;
+        transition: all 0.3s ease;
+      }
 
-  <!-- Sidebar -->
-  <nav class="sidebar">
-    <div class="text-center mb-4">
-      <h4>Vision V</h4>
-    </div>
-    <a href="home.html" class="active"><i class="fa fa-home me-2"></i>Dashboard</a>
-    <a href="swaps.html"><i class="fa fa-refresh me-2"></i>My Swaps</a>
-    <a href="upload.html"><i class="fa fa-upload me-2"></i>Upload Device</a>
-    <a href="notification.html"><i class="fa fa-bell me-2"></i>Notifications</a>
-    <a href="settings.html"><i class="fa fa-cog me-2"></i>Settings</a>
-    <a href="#"><i class="fa fa-sign-out me-2"></i>Logout</a>
-  </nav>
+      .stats-card:hover {
+        transform: translateX(5px);
+      }
 
-  <!-- Main Content -->
-  <div class="main">
-    <div class="topbar d-flex justify-content-between align-items-center mt-2">
-      <h5 class="mb-0">Welcome Back, <span class="user-name">Emmanuel</span></h5>
-      <i class="fa fa-user-circle fa-2x text-secondary"></i>
-    </div>
+      .stats-card:nth-child(1) {
+        border-left-color: #28a745;
+      }
+      .stats-card:nth-child(2) {
+        border-left-color: #007bff;
+      }
+      .stats-card:nth-child(3) {
+        border-left-color: #17a2b8;
+      }
 
-    <!-- Welcome Banner -->
-    <div class="welcome-banner mt-4">
-      <h3>Hello Emmanuel 👋</h3>
-      <p>Ready to swap your next device? Explore, connect and upgrade smartly with Vision V.</p>
-    </div>
+      .btn-outline-primary {
+        border: 2px solid #001f3f;
+        color: #001f3f;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
 
-    <!-- Dashboard Summary -->
-    <div class="row mt-4 g-4">
-      <div class="col-md-4">
-        <div class="card card-box p-3">
-          <h6><i class="fa fa-upload text-success me-2"></i>Devices Uploaded</h6>
-          <h3>5</h3>
-        </div>
+      .btn-outline-primary:hover {
+        background-color: #001f3f;
+        border-color: #001f3f;
+        transform: translateY(-2px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 31, 63, 0.3);
+      }
+
+      .list-group-item {
+        border: none;
+        border-radius: 0.75rem;
+        margin-bottom: 0.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      .list-group-item:hover {
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateX(5px);
+      }
+
+      .activity-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+      }
+
+      .activity-icon.bg-primary {
+        background-color: rgba(0, 123, 255, 0.1);
+        color: #007bff;
+      }
+      .activity-icon.bg-success {
+        background-color: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+      }
+      .activity-icon.bg-warning {
+        background-color: rgba(255, 193, 7, 0.1);
+        color: #ffc107;
+      }
+
+      .sidebar {
+        background: linear-gradient(180deg, #001f3f 0%, #003366 100%);
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar a:hover,
+      .sidebar a.active {
+        background: rgba(255, 255, 255, 0.1);
+        border-left: 4px solid #00cc99;
+        transform: translateX(5px);
+      }
+
+      @media (max-width: 768px) {
+        .main {
+          margin-left: 0;
+        }
+        .sidebar {
+          position: relative;
+          width: 100%;
+          height: auto;
+        }
+        .welcome-banner {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="text-center mb-4">
+        <h4>Vision V</h4>
       </div>
-      <div class="col-md-4">
-        <div class="card card-box p-3">
-          <h6><i class="fa fa-exchange text-primary me-2"></i>Swaps in Progress</h6>
-          <h3>2</h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-box p-3">
-          <h6><i class="fa fa-check text-info me-2"></i>Completed Swaps</h6>
-          <h3>3</h3>
-        </div>
-      </div>
-    </div>
+      <a href="home.html" class="active"
+        ><i class="fa fa-home me-2"></i>Dashboard</a
+      >
+      <a href="swaps.html"><i class="fa fa-refresh me-2"></i>My Swaps</a>
+      <a href="upload.html"><i class="fa fa-upload me-2"></i>Upload Device</a>
+      <a href="notification.html"
+        ><i class="fa fa-bell me-2"></i>Notifications</a
+      >
+      <a href="settings.html"><i class="fa fa-cog me-2"></i>Settings</a>
+      <a href="#"><i class="fa fa-sign-out me-2"></i>Logout</a>
+    </nav>
 
-    <!-- Recommended Swaps -->
-    <div class="mt-5">
-      <h5 class="section-title">Recommended Swaps</h5>
-      <div class="row g-4">
+    <!-- Main Content -->
+    <div class="main">
+      <div
+        class="topbar d-flex justify-content-between align-items-center mt-2"
+      >
+        <h5 class="mb-0">
+          Welcome Back, <span class="user-name">Emmanuel</span>
+        </h5>
+        <i class="fa fa-user-circle fa-2x text-secondary"></i>
+      </div>
+
+      <!-- Welcome Banner -->
+      <div class="welcome-banner mt-4">
+        <h3>Hello Emmanuel 👋</h3>
+        <p>
+          Ready to swap your next device? Explore, connect and upgrade smartly
+          with Vision V.
+        </p>
+      </div>
+
+      <!-- Dashboard Summary -->
+      <div class="row mt-4 g-4">
         <div class="col-md-4">
-          <div class="card card-box p-3 text-center">
-            <i class="fa fa-apple fa-2x text-dark mb-2"></i>
-            <h6>Swap your iPhone 11</h6>
-            <p>with iPhone 13 Mini</p>
-            <button class="btn btn-outline-primary btn-sm">View Option</button>
+          <div class="card card-box stats-card p-4">
+            <div class="d-flex align-items-center">
+              <div class="activity-icon bg-success me-3">
+                <i class="fa fa-upload"></i>
+              </div>
+              <div>
+                <h6 class="mb-1">Devices Uploaded</h6>
+                <h3 class="mb-0">5</h3>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card card-box p-3 text-center">
-            <i class="fa fa-laptop fa-2x text-dark mb-2"></i>
-            <h6>Swap HP Pavilion</h6>
-            <p>with MacBook Air M1</p>
-            <button class="btn btn-outline-primary btn-sm">Explore</button>
+          <div class="card card-box stats-card p-4">
+            <div class="d-flex align-items-center">
+              <div class="activity-icon bg-primary me-3">
+                <i class="fa fa-exchange"></i>
+              </div>
+              <div>
+                <h6 class="mb-1">Swaps in Progress</h6>
+                <h3 class="mb-0">2</h3>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card card-box p-3 text-center">
-            <i class="fa fa-android fa-2x text-dark mb-2"></i>
-            <h6>Swap Infinix Note 12</h6>
-            <p>with Samsung A52</p>
-            <button class="btn btn-outline-primary btn-sm">Compare</button>
+          <div class="card card-box stats-card p-4">
+            <div class="d-flex align-items-center">
+              <div class="activity-icon bg-info me-3">
+                <i class="fa fa-check"></i>
+              </div>
+              <div>
+                <h6 class="mb-1">Completed Swaps</h6>
+                <h3 class="mb-0">3</h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Recent Activity -->
-    <div class="mt-5 mb-5">
-      <h5 class="section-title">Recent Activity</h5>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <i class="fa fa-mobile text-primary me-2"></i>You uploaded an iPhone 12 Pro for swap.
-          <span class="float-end text-muted">2 hours ago</span>
-        </li>
-        <li class="list-group-item">
-          <i class="fa fa-check text-success me-2"></i>Your swap with Samsung S22 was approved.
-          <span class="float-end text-muted">Yesterday</span>
-        </li>
-        <li class="list-group-item">
-          <i class="fa fa-bell text-warning me-2"></i>You have a new message from a user.
-          <span class="float-end text-muted">3 days ago</span>
-        </li>
-      </ul>
-    </div>
-  </div>
+      <!-- Recommended Swaps -->
+      <div class="mt-5">
+        <h5 class="section-title">Recommended Swaps</h5>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card card-box p-3 text-center">
+              <i class="fa fa-apple fa-2x text-dark mb-2"></i>
+              <h6>Swap your iPhone 11</h6>
+              <p>with iPhone 13 Mini</p>
+              <button class="btn btn-outline-primary btn-sm">
+                View Option
+              </button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-box p-3 text-center">
+              <i class="fa fa-laptop fa-2x text-dark mb-2"></i>
+              <h6>Swap HP Pavilion</h6>
+              <p>with MacBook Air M1</p>
+              <button class="btn btn-outline-primary btn-sm">Explore</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-box p-3 text-center">
+              <i class="fa fa-android fa-2x text-dark mb-2"></i>
+              <h6>Swap Infinix Note 12</h6>
+              <p>with Samsung A52</p>
+              <button class="btn btn-outline-primary btn-sm">Compare</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</body>
+      <!-- Recent Activity -->
+      <div class="mt-5 mb-5">
+        <h5 class="section-title">Recent Activity</h5>
+        <ul class="list-group">
+          <li class="list-group-item d-flex align-items-center">
+            <div class="activity-icon bg-primary">
+              <i class="fa fa-mobile"></i>
+            </div>
+            <div class="flex-grow-1">
+              You uploaded an iPhone 12 Pro for swap.
+              <div class="text-muted small">2 hours ago</div>
+            </div>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <div class="activity-icon bg-success">
+              <i class="fa fa-check"></i>
+            </div>
+            <div class="flex-grow-1">
+              Your swap with Samsung S22 was approved.
+              <div class="text-muted small">Yesterday</div>
+            </div>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <div class="activity-icon bg-warning">
+              <i class="fa fa-bell"></i>
+            </div>
+            <div class="flex-grow-1">
+              You have a new message from a user.
+              <div class="text-muted small">3 days ago</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>

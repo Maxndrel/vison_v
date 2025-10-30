@@ -14,29 +14,105 @@
     />
     <style>
       body {
-        background: #f4f6f9;
+        background: linear-gradient(135deg, #f4f6f9 0%, #e9ecef 100%);
         font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
       }
       .signup-container {
         min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 2rem 1rem;
       }
       .card {
         border: none;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        border-radius: 1.5rem;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.95);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
       }
       .form-control {
-        border-radius: 0.5rem;
+        border-radius: 0.75rem;
+        border: 2px solid #e9ecef;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .form-control:focus {
+        border-color: #001f3f;
+        box-shadow: 0 0 0 0.2rem rgba(0, 31, 63, 0.25);
+      }
+      .input-group-text {
+        background: #f8f9fa;
+        border: 2px solid #e9ecef;
+        border-right: none;
+        color: #6c757d;
+      }
+      .form-control:focus + .input-group-text,
+      .input-group .form-control:focus ~ .input-group-text {
+        border-color: #001f3f;
       }
       .btn-navy {
         background-color: #001f3f;
         color: #fff;
+        border: none;
+        border-radius: 0.75rem;
+        padding: 0.875rem 2rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-navy::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
       }
       .btn-navy:hover {
-        background-color: #001735;
+        background-color: #003366;
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 31, 63, 0.3);
+      }
+      .btn-navy:hover::before {
+        left: 100%;
+      }
+      .btn-navy:active {
+        transform: translateY(0);
+      }
+      .form-check-input:checked {
+        background-color: #001f3f;
+        border-color: #001f3f;
+      }
+      .text-decoration-none:hover {
+        text-decoration: underline !important;
+      }
+      .alert {
+        border-radius: 0.75rem;
+        border: none;
+        font-weight: 500;
+      }
+      .error-message {
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
       }
     </style>
   </head>
