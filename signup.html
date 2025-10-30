@@ -1,102 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sign Up | Vision V</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    body {
-      background: #f4f6f9;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .signup-container {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .card {
-      border: none;
-      border-radius: 1rem;
-      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
-    }
-    .form-control {
-      border-radius: 0.5rem;
-    }
-    .btn-navy {
-      background-color: #001f3f;
-      color: #fff;
-    }
-    .btn-navy:hover {
-      background-color: #001735;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up | Vision V</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        background: #f4f6f9;
+        font-family: "Segoe UI", sans-serif;
+      }
+      .signup-container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+      .form-control {
+        border-radius: 0.5rem;
+      }
+      .btn-navy {
+        background-color: #001f3f;
+        color: #fff;
+      }
+      .btn-navy:hover {
+        background-color: #001735;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signup-container">
+      <div class="card p-4 p-md-5" style="max-width: 500px; width: 100%">
+        <h3 class="text-center mb-4 fw-bold">Create an Account</h3>
 
-  <div class="signup-container">
-    <div class="card p-4 p-md-5" style="max-width: 500px; width: 100%;">
-      <h3 class="text-center mb-4 fw-bold">Create an Account</h3>
-
-      <form action="home.html">
-        <div class="mb-3">
-          <label for="name" class="form-label">Full Name</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fa fa-user"></i></span>
-            <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+        <form id="signup-form" action="home.html" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa fa-user"></i></span>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                aria-describedby="name-error"
+                required
+              />
+            </div>
+            <div
+              id="name-error"
+              class="error-message text-danger"
+              style="display: none"
+            ></div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <div class="input-group">
+              <span class="input-group-text"
+                ><i class="fa fa-envelope"></i
+              ></span>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                aria-describedby="email-error"
+                required
+              />
+            </div>
+            <div
+              id="email-error"
+              class="error-message text-danger"
+              style="display: none"
+            ></div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="phone" class="form-label">Phone Number</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fa fa-phone"></i></span>
-            <input type="tel" class="form-control" id="phone" name="phone" placeholder="+234..." required>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa fa-phone"></i></span>
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="phone"
+                placeholder="+234..."
+                aria-describedby="phone-error"
+                required
+              />
+            </div>
+            <div
+              id="phone-error"
+              class="error-message text-danger"
+              style="display: none"
+            ></div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fa fa-lock"></i></span>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Create password" required>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Create password"
+                aria-describedby="password-error"
+                required
+              />
+            </div>
+            <div
+              id="password-error"
+              class="error-message text-danger"
+              style="display: none"
+            ></div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="confirmPassword" class="form-label">Confirm Password</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fa fa-check"></i></span>
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" required>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label"
+              >Confirm Password</label
+            >
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa fa-check"></i></span>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Re-enter password"
+                aria-describedby="confirmPassword-error"
+                required
+              />
+            </div>
+            <div
+              id="confirmPassword-error"
+              class="error-message text-danger"
+              style="display: none"
+            ></div>
           </div>
-        </div>
 
-        <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" id="terms" required>
-          <label class="form-check-label" for="terms">
-            I agree to the <a href="#">Terms & Conditions</a>
-          </label>
-        </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="terms"
+              required
+            />
+            <label class="form-check-label" for="terms">
+              I agree to the <a href="#">Terms & Conditions</a>
+            </label>
+          </div>
 
-        <div class="d-grid">
-          <button type="submit" class="btn btn-navy">Sign Up</button>
-        </div>
-      </form>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-navy" id="signup-submit">
+              Sign Up
+            </button>
+          </div>
+        </form>
 
-
-      <p class="mt-4 mb-0 text-center">Already have an account? <a href="login.html" class="text-decoration-none">Login</a></p>
+        <p class="mt-4 mb-0 text-center">
+          Already have an account?
+          <a href="login.html" class="text-decoration-none">Login</a>
+        </p>
+      </div>
     </div>
-  </div>
+    <script src="./js/validation.js"></script>
+    <script>
+      // Signup form validation and AJAX submission
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearErrors(this);
 
-</body>
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const confirmPassword = document
+            .getElementById("confirmPassword")
+            .value.trim();
+          const terms = document.getElementById("terms").checked;
+
+          let isValid = true;
+
+          if (name.length < 2) {
+            showError("name", "Full name must be at least 2 characters.");
+            isValid = false;
+          }
+
+          if (!validateEmail(email)) {
+            showError("email", "Please enter a valid email address.");
+            isValid = false;
+          }
+
+          if (!validatePhone(phone)) {
+            showError(
+              "phone",
+              "Please enter a valid Nigerian phone number (e.g., +2348012345678)."
+            );
+            isValid = false;
+          }
+
+          if (!validatePassword(password)) {
+            showError(
+              "password",
+              "Password must be at least 8 characters with uppercase, lowercase, and number."
+            );
+            isValid = false;
+          }
+
+          if (!passwordsMatch(password, confirmPassword)) {
+            showError("confirmPassword", "Passwords do not match.");
+            isValid = false;
+          }
+
+          if (!terms) {
+            showError("terms", "You must agree to the Terms & Conditions.");
+            isValid = false;
+          }
+
+          if (isValid) {
+            submitForm(this, "/api/signup", function (data) {
+              showSuccess(
+                "Account created successfully! Redirecting to login..."
+              );
+              // Simulate redirect after successful signup
+              setTimeout(() => {
+                window.location.href = "login.html";
+              }, 2000);
+            });
+          }
+        });
+    </script>
+  </body>
 </html>
