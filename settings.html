@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings | Vision V</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style/index.css" />
+
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .sidebar {
+        height: 100vh;
+        background-color: #001f3f;
+        padding-top: 20px;
+        position: fixed;
+        width: 220px;
+        color: #fff;
+      }
+
+      .sidebar .nav-link {
+        color: #ccc;
+        margin-bottom: 10px;
+      }
+
+      .sidebar .nav-link.active,
+      .sidebar .nav-link:hover {
+        color: #fff;
+        background-color: #004080;
+        border-radius: 5px;
+      }
+
+      .main {
+        margin-left: 240px;
+        padding: 20px;
+      }
+
+      .nav-header {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .section-title {
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: #001f3f;
+      }
+
+      .form-control,
+      .form-check-input {
+        box-shadow: none !important;
+      }
+
+      .card {
+        border: none;
+        margin-bottom: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .btn-primary {
+        background-color: #001f3f;
+        border-color: #001f3f;
+      }
+
+      .btn-primary:hover {
+        background-color: #004080;
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .main {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="text-center mb-4">
+        <h4>Vision V</h4>
+      </div>
+      <a href="home.html" class="active"
+        ><i class="fa fa-home me-2"></i>Dashboard</a
+      >
+      <a href="swaps.html"><i class="fa fa-refresh me-2"></i>My Swaps</a>
+      <a href="upload.html"><i class="fa fa-upload me-2"></i>Upload Device</a>
+      <a href="notification.html"
+        ><i class="fa fa-bell me-2"></i>Notifications</a
+      >
+      <a href="settings.html"><i class="fa fa-cog me-2"></i>Settings</a>
+      <a href="index.html"><i class="fa fa-sign-out me-2"></i>Logout</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main">
+      <h3 class="section-title">Account Settings</h3>
+
+      <!-- Profile Info -->
+      <div class="card p-4">
+        <h5 class="mb-3">
+          <i class="fa fa-user-circle"></i> Profile Information
+        </h5>
+        <form id="profile-form" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                class="form-control"
+                placeholder="John Doe"
+                aria-describedby="fullName-error"
+                required
+              />
+              <div
+                id="fullName-error"
+                class="error-message text-danger"
+                style="display: none"
+              ></div>
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="john@example.com"
+                aria-describedby="email-error"
+                required
+              />
+              <div
+                id="email-error"
+                class="error-message text-danger"
+                style="display: none"
+              ></div>
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input
+                type="text"
+                id="phone"
+                class="form-control"
+                placeholder="+234..."
+                aria-describedby="phone-error"
+                required
+              />
+              <div
+                id="phone-error"
+                class="error-message text-danger"
+                style="display: none"
+              ></div>
+            </div>
+            <div class="col-md-6">
+              <label for="location" class="form-label">Location</label>
+              <input
+                type="text"
+                id="location"
+                class="form-control"
+                placeholder="Lagos, Nigeria"
+                aria-describedby="location-error"
+                required
+              />
+              <div
+                id="location-error"
+                class="error-message text-danger"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mt-3"
+            id="profile-submit"
+          >
+            Update Profile
+          </button>
+        </form>
+      </div>
+
+      <!-- Change Password -->
+      <div class="card p-4">
+        <h5 class="mb-3"><i class="fa fa-lock"></i> Change Password</h5>
+        <form id="password-form" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="currentPassword" class="form-label"
+                >Current Password</label
+              >
+              <input
+                type="password"
+                id="currentPassword"
+                class="form-control"
+                aria-describedby="currentPassword-error"
+                required
+              />
+              <div
+                id="currentPassword-error"
+                class="error-message text-danger"
+                style="display: none"
+              ></div>
+            </div>
+            <div class="col-md-6">
+              <label for="newPassword" class="form-label">New Password</label>
+              <input
+                type="password"
+                id="newPassword"
+                class="form-control"
+                aria-describedby="newPassword-error"
+                required
+              />
+              <div
+                id="newPassword-error"
+                class="error-message text-danger"
+                style="display: none"
+              ></div>
+            </div>
+            <div class="col-md-6">
+              <label for="confirmPassword" class="form-label"
+                >Confirm New Password</label
+              >
+              <input
+                type="password"
+                id="confirmPassword"
+                class="form-control"
+                aria-describedby="confirmPassword-error"
+                required
+              />
+              <div
+                id="confirmPassword-error"
+                class="error-message text-danger"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mt-3"
+            id="password-submit"
+          >
+            Change Password
+          </button>
+        </form>
+      </div>
+
+      <!-- Notification Settings -->
+      <div class="card p-4">
+        <h5 class="mb-3">
+          <i class="fa fa-bell"></i> Notification Preferences
+        </h5>
+        <form id="notification-form" novalidate>
+          <div class="form-check form-switch mb-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="emailNotif"
+              checked
+            />
+            <label class="form-check-label" for="emailNotif"
+              >Email Notifications</label
+            >
+          </div>
+          <div class="form-check form-switch mb-2">
+            <input class="form-check-input" type="checkbox" id="swapNotif" />
+            <label class="form-check-label" for="swapNotif"
+              >Swap Request Alerts</label
+            >
+          </div>
+          <div class="form-check form-switch mb-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="promoNotif"
+              checked
+            />
+            <label class="form-check-label" for="promoNotif"
+              >Promotional Updates</label
+            >
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mt-2"
+            id="notification-submit"
+          >
+            Save Preferences
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/validation.js"></script>
+    <script>
+      // Profile form validation and AJAX submission
+      document
+        .getElementById("profile-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearErrors(this);
+
+          const fullName = document.getElementById("fullName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const location = document.getElementById("location").value.trim();
+
+          let isValid = true;
+
+          if (fullName.length < 2) {
+            showError("fullName", "Full name must be at least 2 characters.");
+            isValid = false;
+          }
+
+          if (!validateEmail(email)) {
+            showError("email", "Please enter a valid email address.");
+            isValid = false;
+          }
+
+          if (!validatePhone(phone)) {
+            showError(
+              "phone",
+              "Please enter a valid Nigerian phone number (e.g., +2348012345678)."
+            );
+            isValid = false;
+          }
+
+          if (location.length < 2) {
+            showError("location", "Location must be at least 2 characters.");
+            isValid = false;
+          }
+
+          if (isValid) {
+            submitForm(this, "/api/profile", function (data) {
+              showSuccess("Profile updated successfully!");
+            });
+          }
+        });
+
+      // Password form validation and AJAX submission
+      document
+        .getElementById("password-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearErrors(this);
+
+          const currentPassword = document
+            .getElementById("currentPassword")
+            .value.trim();
+          const newPassword = document
+            .getElementById("newPassword")
+            .value.trim();
+          const confirmPassword = document
+            .getElementById("confirmPassword")
+            .value.trim();
+
+          let isValid = true;
+
+          if (currentPassword.length < 1) {
+            showError("currentPassword", "Current password is required.");
+            isValid = false;
+          }
+
+          if (!validatePassword(newPassword)) {
+            showError(
+              "newPassword",
+              "Password must be at least 8 characters with uppercase, lowercase, and number."
+            );
+            isValid = false;
+          }
+
+          if (!passwordsMatch(newPassword, confirmPassword)) {
+            showError("confirmPassword", "Passwords do not match.");
+            isValid = false;
+          }
+
+          if (isValid) {
+            submitForm(this, "/api/change-password", function (data) {
+              showSuccess("Password changed successfully!");
+              document.getElementById("password-form").reset();
+            });
+          }
+        });
+
+      // Notification form validation and AJAX submission
+      document
+        .getElementById("notification-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearErrors(this);
+
+          // No specific validation needed for checkboxes, just submit
+          submitForm(this, "/api/notifications", function (data) {
+            showSuccess("Notification preferences saved!");
+          });
+        });
+    </script>
+  </body>
+</html>

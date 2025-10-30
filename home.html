@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard | Vision V</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./style/index.css" />
+
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: 'Segoe UI', sans-serif;
+    } 
+
+    .topbar {
+      background-color: white;
+      padding: 15px 20px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-banner {
+      background: linear-gradient(135deg, #001f3f, #005f73);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
+    }
+
+    .card-box {
+      border-radius: 10px;
+      box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    .card-box:hover {
+      transform: translateY(-4px);
+    }
+
+    .user-name {
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="text-center mb-4">
+      <h4>Vision V</h4>
+    </div>
+    <a href="home.html" class="active"><i class="fa fa-home me-2"></i>Dashboard</a>
+    <a href="swaps.html"><i class="fa fa-refresh me-2"></i>My Swaps</a>
+    <a href="upload.html"><i class="fa fa-upload me-2"></i>Upload Device</a>
+    <a href="notification.html"><i class="fa fa-bell me-2"></i>Notifications</a>
+    <a href="settings.html"><i class="fa fa-cog me-2"></i>Settings</a>
+    <a href="#"><i class="fa fa-sign-out me-2"></i>Logout</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="topbar d-flex justify-content-between align-items-center mt-2">
+      <h5 class="mb-0">Welcome Back, <span class="user-name">Emmanuel</span></h5>
+      <i class="fa fa-user-circle fa-2x text-secondary"></i>
+    </div>
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner mt-4">
+      <h3>Hello Emmanuel 👋</h3>
+      <p>Ready to swap your next device? Explore, connect and upgrade smartly with Vision V.</p>
+    </div>
+
+    <!-- Dashboard Summary -->
+    <div class="row mt-4 g-4">
+      <div class="col-md-4">
+        <div class="card card-box p-3">
+          <h6><i class="fa fa-upload text-success me-2"></i>Devices Uploaded</h6>
+          <h3>5</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-box p-3">
+          <h6><i class="fa fa-exchange text-primary me-2"></i>Swaps in Progress</h6>
+          <h3>2</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-box p-3">
+          <h6><i class="fa fa-check text-info me-2"></i>Completed Swaps</h6>
+          <h3>3</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended Swaps -->
+    <div class="mt-5">
+      <h5 class="section-title">Recommended Swaps</h5>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card card-box p-3 text-center">
+            <i class="fa fa-apple fa-2x text-dark mb-2"></i>
+            <h6>Swap your iPhone 11</h6>
+            <p>with iPhone 13 Mini</p>
+            <button class="btn btn-outline-primary btn-sm">View Option</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-box p-3 text-center">
+            <i class="fa fa-laptop fa-2x text-dark mb-2"></i>
+            <h6>Swap HP Pavilion</h6>
+            <p>with MacBook Air M1</p>
+            <button class="btn btn-outline-primary btn-sm">Explore</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-box p-3 text-center">
+            <i class="fa fa-android fa-2x text-dark mb-2"></i>
+            <h6>Swap Infinix Note 12</h6>
+            <p>with Samsung A52</p>
+            <button class="btn btn-outline-primary btn-sm">Compare</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="mt-5 mb-5">
+      <h5 class="section-title">Recent Activity</h5>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <i class="fa fa-mobile text-primary me-2"></i>You uploaded an iPhone 12 Pro for swap.
+          <span class="float-end text-muted">2 hours ago</span>
+        </li>
+        <li class="list-group-item">
+          <i class="fa fa-check text-success me-2"></i>Your swap with Samsung S22 was approved.
+          <span class="float-end text-muted">Yesterday</span>
+        </li>
+        <li class="list-group-item">
+          <i class="fa fa-bell text-warning me-2"></i>You have a new message from a user.
+          <span class="float-end text-muted">3 days ago</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
