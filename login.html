@@ -110,8 +110,9 @@
       </div>
     </div>
     <script src="./js/validation.js"></script>
+    <script src="./js/auth.js"></script>
     <script>
-      // Login form validation and AJAX submission
+      // Login form validation and submission using localStorage
       document
         .getElementById("login-form")
         .addEventListener("submit", function (e) {
@@ -134,13 +135,16 @@
           }
 
           if (isValid) {
-            submitForm(this, "/api/login", function (data) {
-              showSuccess("Login successful! Redirecting...");
-              // Simulate redirect after successful login
+            try {
+              const result = Auth.login(email, password);
+              showSuccess(result.message + " Redirecting...");
+              // Redirect after successful login
               setTimeout(() => {
                 window.location.href = "home.html";
               }, 2000);
-            });
+            } catch (error) {
+              showGlobalError(error.message);
+            }
           }
         });
     </script>

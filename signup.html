@@ -181,8 +181,9 @@
       </div>
     </div>
     <script src="./js/validation.js"></script>
+    <script src="./js/auth.js"></script>
     <script>
-      // Signup form validation and AJAX submission
+      // Signup form validation and submission using localStorage
       document
         .getElementById("signup-form")
         .addEventListener("submit", function (e) {
@@ -237,15 +238,16 @@
           }
 
           if (isValid) {
-            submitForm(this, "/api/signup", function (data) {
-              showSuccess(
-                "Account created successfully! Redirecting to login..."
-              );
-              // Simulate redirect after successful signup
+            try {
+              const result = Auth.signup({ name, email, phone, password });
+              showSuccess(result.message + " Redirecting to login...");
+              // Redirect after successful signup
               setTimeout(() => {
                 window.location.href = "login.html";
               }, 2000);
-            });
+            } catch (error) {
+              showGlobalError(error.message);
+            }
           }
         });
     </script>
