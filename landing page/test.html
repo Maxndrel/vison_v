@@ -14,17 +14,141 @@
     />
     <link rel="stylesheet" href="./style/index.css" />
     <style>
+      body {
+        background: linear-gradient(135deg, #f4f6f9 0%, #e9ecef 100%);
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .page-header {
+        background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+        color: white;
+        padding: 80px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        transform: translate(50%, -50%);
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .page-header .lead {
+        font-size: 1.25rem;
+        opacity: 0.9;
+      }
+
       .testimonial-img {
         width: 80px;
         height: 80px;
         object-fit: cover;
         border-radius: 50%;
+        border: 3px solid #20c997;
+        transition: all 0.3s ease;
       }
+
       .card {
-        border: none;
+        border-radius: 1.25rem !important;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+        transition: all 0.3s ease !important;
+        border: none !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        padding: 2rem !important;
       }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15) !important;
+      }
+
+      .card:hover .testimonial-img {
+        transform: scale(1.1);
+        border-color: #17a2b8;
+      }
+
       .star {
         color: #ffc107;
+        font-size: 1.2rem;
+        margin: 0 0.1rem;
+        transition: all 0.3s ease;
+      }
+
+      .star:hover {
+        transform: scale(1.2);
+      }
+
+      .section-heading {
+        font-weight: 700 !important;
+        color: #001f3f !important;
+        font-size: 2.5rem !important;
+        margin-bottom: 3rem !important;
+      }
+
+      .footer {
+        background: linear-gradient(180deg, #001f3f 0%, #003366 100%);
+        color: #fff;
+        padding: 4rem 0;
+        position: relative;
+      }
+
+      .footer a {
+        color: #ccc;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #20c997;
+        transform: translateX(5px);
+      }
+
+      .footer .fa {
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .footer .fa:hover {
+        transform: scale(1.2);
+      }
+
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+        .page-header {
+          padding: 60px 20px;
+        }
+        .section-heading {
+          font-size: 2rem !important;
+        }
       }
     </style>
   </head>
@@ -71,10 +195,10 @@
     </nav>
 
     <!-- Page Heading -->
-    <header class="py-5 text-center bg-light">
+    <header class="py-5 text-center page-header">
       <div class="container">
         <h1 class="fw-bold mb-3">What Our Users Say</h1>
-        <p class="lead text-muted">Real feedback from satisfied swappers</p>
+        <p class="lead">Real feedback from satisfied swappers</p>
       </div>
     </header>
 

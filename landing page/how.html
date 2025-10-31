@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How It Works | Vision V</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style/index.css" />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #f4f6f9 0%, #e9ecef 100%);
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .page-header {
+        background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+        color: white;
+        padding: 80px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        transform: translate(50%, -50%);
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .page-header .lead {
+        font-size: 1.25rem;
+        opacity: 0.9;
+      }
+
+      .section-heading {
+        font-weight: 700 !important;
+        color: #001f3f !important;
+        font-size: 2.5rem !important;
+        margin-bottom: 3rem !important;
+      }
+
+      .step-icon {
+        font-size: 3rem;
+        color: #20c997;
+        transition: all 0.3s ease;
+      }
+
+      .step-box {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 1.25rem;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+        height: 100%;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .step-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+      }
+
+      .step-box:hover .step-icon {
+        transform: scale(1.1);
+        color: #17a2b8;
+      }
+
+      .device-icon {
+        font-size: 3rem;
+        color: #20c997;
+        transition: all 0.3s ease;
+      }
+
+      .device-icon:hover {
+        transform: scale(1.1);
+        color: #17a2b8;
+      }
+
+      .safety-tip {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .safety-tip:hover {
+        transform: translateX(5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+
+      .footer {
+        background: linear-gradient(180deg, #001f3f 0%, #003366 100%);
+        color: #fff;
+        padding: 4rem 0;
+        position: relative;
+      }
+
+      .footer a {
+        color: #ccc;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #20c997;
+        transform: translateX(5px);
+      }
+
+      .footer .fa {
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .footer .fa:hover {
+        transform: scale(1.2);
+      }
+
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+        .page-header {
+          padding: 60px 20px;
+        }
+        .section-heading {
+          font-size: 2rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand fw-bold"
+          href="#"
+          style="color: var(--primary-color)"
+          >Vision V</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-nav-centered d-flex mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="how.html">How it Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="popular.html">Popular Swaps</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="test.html">Testimonials</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-accent px-4 py-2 ms-2"
+                href="login.html"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="py-5 text-center page-header">
+      <div class="container">
+        <h1 class="fw-bold mb-3">How It Works</h1>
+        <p class="lead">
+          Swapping your electronics on Vision V is simple, fast, and secure.
+          Here’s how:
+        </p>
+      </div>
+    </header>
+
+    <!-- How it Works Section -->
+    <section class="container my-5 text-center">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="step-box">
+            <i class="fa fa-camera step-icon mb-3"></i>
+            <h5 class="fw-bold">1. Upload Your Device</h5>
+            <p class="text-muted">
+              Take clear photos of your device from multiple angles. Include
+              details like brand, model, specifications, condition, and any
+              accessories. Our AI-powered system helps categorize your listing
+              automatically.
+            </p>
+            <small class="text-muted"
+              >Pro tip: High-quality photos get 3x more views!</small
+            >
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-box">
+            <i class="fa fa-exchange step-icon mb-3"></i>
+            <h5 class="fw-bold">2. Choose a Device to Swap</h5>
+            <p class="text-muted">
+              Use our advanced search filters to find the perfect match. Browse
+              by category, location, condition, and price range. Make an offer
+              directly through our secure messaging system.
+            </p>
+            <small class="text-muted"
+              >Browse thousands of verified listings daily.</small
+            >
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-box">
+            <i class="fa fa-handshake-o step-icon mb-3"></i>
+            <h5 class="fw-bold">3. Confirm and Swap</h5>
+            <p class="text-muted">
+              Once you agree on terms, arrange delivery or pickup. Our escrow
+              system holds funds securely until both parties confirm receipt.
+              Rate your experience to build trust.
+            </p>
+            <small class="text-muted"
+              >100% secure transactions guaranteed.</small
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You Can Swap -->
+    <section class="container my-5 text-center">
+      <h2 class="mb-4 section-heading">What You Can Swap</h2>
+      <p class="text-muted mb-4">
+        Vision V supports a variety of electronic device categories:
+      </p>
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <i class="fa fa-mobile device-icon mb-2"></i>
+          <h6>Smartphones</h6>
+        </div>
+        <div class="col-md-3 mb-3">
+          <i class="fa fa-laptop device-icon mb-2"></i>
+          <h6>Laptops</h6>
+        </div>
+        <div class="col-md-3 mb-3">
+          <i class="fa fa-tablet device-icon mb-2"></i>
+          <h6>Tablets</h6>
+        </div>
+        <div class="col-md-3 mb-3">
+          <i class="fa fa-headphones device-icon mb-2"></i>
+          <h6>Accessories</h6>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Tutorial Section -->
+    <section class="container my-5 text-center">
+      <h2 class="mb-4 section-heading">See It in Action</h2>
+      <p class="text-muted mb-4">
+        Watch this quick video to understand the swapping process:
+      </p>
+      <div class="ratio ratio-16x9" style="max-width: 800px; margin: 0 auto">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Vision V Swapping Tutorial"
+          allowfullscreen
+          style="
+            border-radius: 1rem;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+          "
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Common Questions Section -->
+    <section class="container my-5 text-center">
+      <h2 class="mb-4 section-heading">Common Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq1"
+            >
+              How do I know if a device is authentic?
+            </button>
+          </h2>
+          <div
+            id="faq1"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              All listings are verified by our team. Look for the verification
+              badge and check user ratings before proceeding.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq2"
+            >
+              What if the device arrives damaged?
+            </button>
+          </h2>
+          <div
+            id="faq2"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Our insurance covers all shipments. Report any issues within 48
+              hours and we'll resolve it immediately.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq3"
+            >
+              Can I cancel a swap after agreeing?
+            </button>
+          </h2>
+          <div
+            id="faq3"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Cancellations are allowed within 24 hours of agreement. After
+              that, contact support for assistance.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="container my-5 text-center">
+      <h2 class="mb-4 section-heading">Success Stories</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body">
+              <p class="card-text">
+                "Swapped my old iPhone for a brand new Samsung. The process was
+                incredibly smooth!"
+              </p>
+              <footer class="blockquote-footer">Sarah K., Lagos</footer>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body">
+              <p class="card-text">
+                "Found the perfect laptop upgrade. Vision V made it so easy and
+                secure."
+              </p>
+              <footer class="blockquote-footer">John M., Abuja</footer>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body">
+              <p class="card-text">
+                "Love the community here. Everyone is helpful and transactions
+                are always fair."
+              </p>
+              <footer class="blockquote-footer">Ada N., Port Harcourt</footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="container my-5 text-center">
+      <h2 class="mb-4 section-heading">Ready to Get Started?</h2>
+      <p class="text-muted mb-4">
+        Join thousands of Nigerians who are already swapping smarter.
+      </p>
+      <a href="signup.html" class="btn btn-primary btn-lg px-5 py-3"
+        >Create Your Account</a
+      >
+    </section>
+
+    <!-- Swap Safety Tips -->
+    <section class="container my-5 text-center">
+      <h2 class="mb-4 section-heading">Swap Safety Tips</h2>
+      <p class="text-muted mb-4">
+        Stay safe and secure while swapping devices on Vision V:
+      </p>
+      <div class="row g-3 justify-content-center">
+        <div class="col-md-6">
+          <div class="safety-tip">
+            <i class="fa fa-check text-success me-2"></i>Only swap with verified
+            users
+          </div>
+          <div class="safety-tip">
+            <i class="fa fa-check text-success me-2"></i>Use in-app messaging to
+            communicate
+          </div>
+          <div class="safety-tip">
+            <i class="fa fa-check text-success me-2"></i>Inspect the device
+            thoroughly before confirming
+          </div>
+          <div class="safety-tip">
+            <i class="fa fa-check text-success me-2"></i>Meet in safe, public
+            locations if exchanging in person
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container text-center text-md-start">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">About Vision V</h5>
+            <p>
+              Vision V is Nigeria’s #1 electronics swap platform. We make it
+              easy and safe to trade your devices without cash.
+            </p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="how.html">How it Works</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="popular.html">Popular Swaps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="test.html">Testimonials</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">Connect With Us</h5>
+            <p><i class="fa fa-map-marker"></i> Lagos, Nigeria</p>
+            <p><i class="fa fa-envelope"></i> support@visionv.com</p>
+            <p><i class="fa fa-phone"></i> +234 800 123 4567</p>
+            <div>
+              <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+              <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+              <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center pt-3 border-top mt-4">
+          <p class="mb-0">&copy; 2025 Vision V. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
