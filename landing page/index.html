@@ -29,6 +29,25 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
 
+      .nav-link.active {
+        background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+        color: white !important;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem !important;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link {
+        transition: all 0.3s ease;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem !important;
+      }
+
+      .nav-link:hover {
+        background: rgba(32, 201, 151, 0.1);
+        color: #20c997 !important;
+      }
+
       .hero {
         background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
         color: white;
@@ -258,18 +277,29 @@
         >
 
         <div class="navbar-collapse d-flex justify-content-between w-100">
-          <ul class="navbar-nav navbar-nav-centered d-flex mx-auto">
+          <ul
+            class="navbar-nav navbar-nav-centered d-flex mx-auto"
+            id="nav-links"
+          >
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
+              <a class="nav-link active" href="index.html" data-page="index"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="how.html">How it Works</a>
+              <a class="nav-link" href="how.html" data-page="how"
+                >How it Works</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="popular.html">Popular Swaps</a>
+              <a class="nav-link" href="popular.html" data-page="popular"
+                >Popular Swaps</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="test.html">Testimonials</a>
+              <a class="nav-link" href="test.html" data-page="test"
+                >Testimonials</a
+              >
             </li>
           </ul>
 
